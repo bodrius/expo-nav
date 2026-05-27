@@ -29,6 +29,12 @@ module.exports = defineConfig([
       '@typescript-eslint/no-unsafe-member-access': 'error',
       '@typescript-eslint/no-unsafe-return': 'error',
       '@typescript-eslint/strict-boolean-expressions': 'error',
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: ['../../*', '../../../*', '../../../../*', '../../../../../*'],
+        },
+      ],
       'padding-line-between-statements': [
         'error',
         {

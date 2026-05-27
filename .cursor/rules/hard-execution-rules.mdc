@@ -1,0 +1,102 @@
+---
+description: Strict execution rules for every Cursor agent session in this Expo app
+alwaysApply: true
+---
+
+# Hard Execution Rules
+
+## Core Principles
+
+- Write concise, type-safe TypeScript code.
+- Keep components modular, reusable, and maintainable.
+- Use meaningful English names for variables, functions, components, and files.
+- Keep all comments, documentation, descriptions, user-facing strings, and error messages in English.
+- Add comments only for non-obvious logic; use no more than 3 comments per file.
+- Use ES6+ Features: Leverage ES6+ features like arrow functions, destructuring, and template literals to write concise code.
+- Memoization: Use React.memo() for functional components to prevent unnecessary re-renders.
+
+## Tooling
+
+- Always use Yarn for installing dependencies and running package scripts.
+- Do not use `npm`, `npx`, or `pnpm` commands unless the user explicitly asks for them.
+- Follow ESLint rules for import ordering.
+- Use Prettier for code formatting.
+- Organize imports automatically on save.
+
+## TypeScript
+
+- Use TypeScript strict mode.
+- Favor interfaces for props and state.
+- Avoid `any`; use precise types.
+- Document public APIs with English JSDoc comments.
+
+## React Native Components
+
+- Use functional components and hooks instead of class components.
+- Export components as named arrow functions: `export const HomeScreen = () => {}`.
+- Keep one React component per file.
+- Extract additional components into their own files.
+
+## Imports
+
+1. React and React Native imports first
+2. Third-party libraries (alphabetically)
+3. Internal imports from `src/**`
+4. Relative imports last
+
+- Always import anything under `src/` using the `@/` alias (e.g. `@/shared/ui`, `@/features/auth`, `@/app/navigation`).
+- Avoid deep relative imports like `../../../...` for `src/` modules. Use relative imports only for truly local siblings within the same feature/folder.
+
+## Architecture
+
+- Follow Feature-Sliced Design (FSD) layers: `app/`, `pages/`, `widgets/`, `features/`, `entities/`, and `shared/`.
+- Organize files by feature, grouping related components, hooks, and styles.
+- Follow [Object-Oriented Programming](https://en.wikipedia.org/wiki/Object-oriented_programming) and [SOLID](https://en.wikipedia.org/wiki/SOLID) principles for domain models, services, and abstractions without creating React class components.
+- Follow [Clean Code](https://github.com/ryanmcdermott/clean-code-javascript) practices: small focused units, clear names, low coupling, high cohesion, and simple readable control flow.
+- Use React Navigation for navigation and deep linking best practices.
+- Use Expo EAS Build and Updates for continuous deployment and OTA updates.
+
+## Naming Conventions
+
+- Follow FSD [slices and segments naming conventions](https://feature-sliced.design/docs/reference/slices-segments).
+- Use standard lowercase FSD layer names: `app`, `pages`, `widgets`, `features`, `entities`, and `shared`.
+- Name slices by business domain or user-facing capability, not by technical role.
+- Use conventional segment names when they fit: `ui`, `api`, `model`, `lib`, and `config`.
+- Name custom segments by purpose, not essence; avoid generic names like `components`, `hooks`, `types`, `utils`, and `helpers`.
+- Name files and exports after the domain concept or behavior they represent.
+
+## Performance
+
+- Minimize `useEffect`, `useState`, and heavy computations inside render methods.
+- Use `React.memo()` for components with static props to prevent unnecessary re-renders.
+- Optimize FlashLists with props like `removeClippedSubviews`, `maxToRenderPerBatch`, and `windowSize`.
+- Use `getItemLayout` for FlatLists when items have a consistent size.
+- Avoid anonymous functions in `renderItem` or event handlers when they can cause re-renders.
+- Follow React Native's threading model to keep UI performance smooth.
+
+## Error Handling
+
+- Handle errors and edge cases at the beginning of functions.
+- Use guard clauses and early returns for invalid states.
+- Avoid unnecessary `else` blocks after returns.
+- Keep the happy path last when it improves readability.
+- Implement proper error logging and user-friendly error messages.
+- Consider custom error types or factories for consistent error handling.
+
+## Commit Messages
+
+- Use the format `<type>[optional scope]: <description>`.
+- Use `fix:` for bug fixes.
+- Use `feat:` for new features.
+- Use other conventional types when appropriate: `chore:`, `docs:`, `style:`, `refactor:`, `perf:`, `test:`.
+- Use imperative mood in the subject line.
+- Do not end the subject line with a period.
+- Use the body to explain what changed and why when extra context is useful.
+
+## Security
+
+- Sanitize user inputs to prevent XSS attacks.
+- Use `expo-secure-store` for secure local storage of sensitive data.
+- Use Expo `EXPO_PUBLIC_*` environment variables only for non-sensitive client configuration; never store API secrets, private keys, tokens, or credentials in bundled env variables.
+- Ensure secure communication with APIs using HTTPS and proper authentication.
+- Use Expo's Security guidelines to protect your app: https://docs.expo.dev/guides/security/

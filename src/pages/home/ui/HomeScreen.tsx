@@ -1,8 +1,8 @@
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleSheet, Text } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export const HomeScreen = () => {
-  const title:string = 'Hello Expo Navigation';
+  const title = 'Hello Expo Navigation';
 
   return (
     <SafeAreaView style={styles.container}>
