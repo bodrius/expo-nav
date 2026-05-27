@@ -23,6 +23,10 @@ alwaysApply: true
 - Use Prettier for code formatting.
 - Organize imports automatically on save.
 
+## Expo
+
+- Before writing Expo-related code, read the exact versioned docs at https://docs.expo.dev/versions/v56.0.0/.
+
 ## TypeScript
 
 - Use TypeScript strict mode.
