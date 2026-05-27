@@ -10,12 +10,19 @@
   },
   "devDependencies": {
     "@types/react": "~19.2.2",
+    "eslint": "^9.39.4",
+    "eslint-config-expo": "^56.0.4",
+    "husky": "^9.1.7",
     "typescript": "~6.0.3"
   },
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
+    "lint": "eslint .",
+    "check:diff": "git diff --cached --check",
+    "check": "npm run check:diff && npm run lint && npm run typecheck",
+    "prepare": "husky",
     "typecheck": "tsc --noEmit",
     "web": "expo start --web"
   },
