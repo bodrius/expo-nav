@@ -155,7 +155,10 @@ Score options lightly (Low / Medium / High) on:
 
 When the user approves the plan:
 
-1. List concrete files to create/edit
-2. Note which skills apply (react, react-native)
-3. Suggest verification: `yarn typecheck`, `yarn lint`, manual test paths
-4. Do not commit unless asked
+1. Ensure product requirements exist in `docs/requirements/<feature-slug>.md` (**requirements-planner** if missing)
+2. Save the plan to `docs/plans/<feature-slug>.md` (see [docs/plans/README.md](../../../docs/plans/README.md))
+3. Run **plan-verifier** (pre-implementation) before **implementator**
+4. List concrete files to create/edit
+5. Note which skills apply (react, react-native)
+6. Suggest verification: `yarn typecheck`, `yarn lint`, manual test paths
+7. Do not commit unless asked

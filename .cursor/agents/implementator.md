@@ -36,7 +36,8 @@ If the task is clearly backend-only (servers, databases, non-`src` APIs), **stop
 ### Step 1: Understand the task
 
 1. Read the task description carefully.
-2. Check for an implementation plan in `docs/plans/`. If one exists, follow it task-by-task.
+2. Check for an implementation plan in `docs/plans/`. If one exists, follow it task-by-task. If the user says the plan is not yet verified, stop and suggest **plan-verifier** first.
+3. If `docs/requirements/<feature-slug>.md` exists with **Approved** status, treat it as product truth — do not change behavior without user approval.
 3. If no plan exists, identify what to build, which FSD slices are involved, and which files to touch.
 4. Read existing code related to the task — match naming, patterns, imports (`@/` alias), and file layout.
 

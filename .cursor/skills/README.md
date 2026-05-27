@@ -12,7 +12,7 @@ Skills complement [.cursor/rules/hard-execution-rules.mdc](../rules/hard-executi
 | [react-best-practices](./react-best-practices/SKILL.md) | Components, hooks, effects, context, server state, React 19 APIs | [SKILL.md](./react-best-practices/SKILL.md) |
 | [react-native-best-practices](./react-native-best-practices/SKILL.md) | Expo/RN screens, lists, gestures, navigation, video feeds, app architecture | [SKILL.md](./react-native-best-practices/SKILL.md) |
 
-**Typical flow:** `brainstorming-and-architecture` → agree plan → implement with `react-best-practices` + `react-native-best-practices`.
+**Typical flow:** `requirements-planner` → `brainstorming-and-architecture` (plan) → `plan-verifier` → implement with `react-best-practices` + `react-native-best-practices`.
 
 ## Folder Layout
 

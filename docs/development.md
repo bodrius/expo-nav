@@ -39,7 +39,7 @@ yarn test src/pages/home/ui/HomeScreen.test.tsx
 
 ## Cursor agents
 
-See [agents.md](./agents.md) for when to use implement, review, test, security, and docs agents.
+See [agents.md](./agents.md) for the full agent pipeline. Requirements: [requirements/](./requirements/). Plans: [plans/](./plans/).
 
 ## Project conventions
 
