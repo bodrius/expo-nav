@@ -4,6 +4,8 @@ Expo Nav is an Expo SDK 56 React Native application built with TypeScript and or
 
 The current app is a lightweight foundation for navigation-focused mobile development. It includes an app provider layer, a home page, gesture handler setup, safe area handling, Reanimated support, FlashList, and Expo SecureStore for secure local data storage.
 
+**Documentation:** [docs/README.md](./docs/README.md) — architecture, features, development, environment, and agents.
+
 ## Tech Stack
 
 - Expo SDK 56
@@ -64,6 +66,12 @@ Run TypeScript checks:
 
 ```sh
 yarn typecheck
+```
+
+Run tests:
+
+```sh
+yarn test
 ```
 
 Run the combined project check:
