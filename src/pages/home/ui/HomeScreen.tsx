@@ -1,12 +1,16 @@
-import { StyleSheet, Text } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+
+import { AppText } from '@/shared/ui';
 
 export const HomeScreen = () => {
   const title = 'Hello Expo Navigation';
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>{title}</Text>
+      <AppText testID="home-title" variant="title" color="primary">
+        {title}
+      </AppText>
     </SafeAreaView>
   );
 };
@@ -17,10 +21,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#ffffff',
-  },
-  title: {
-    color: '#111827',
-    fontSize: 24,
-    fontWeight: '600',
   },
 });

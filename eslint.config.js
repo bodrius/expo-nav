@@ -45,7 +45,7 @@ module.exports = defineConfig([
       ],
       'react-hooks/exhaustive-deps': 'error',
       'react-native/no-inline-styles': 'error',
-      'react-native/no-raw-text': 'error',
+      'react-native/no-raw-text': ['error', { skip: ['AppText'] }],
       'react-native/no-single-element-style-arrays': 'error',
       'react-native/no-unused-styles': 'error',
     },

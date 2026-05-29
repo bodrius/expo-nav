@@ -18,6 +18,36 @@ src/
 
 **Dependency rule:** A layer may import only from layers **below** it (e.g. `pages` → `features` → `entities` → `shared`). Do not import upward across layers.
 
+## Shared layer
+
+Presentational building blocks and cross-cutting config. Higher layers import via `@/` (e.g. `@/shared/ui`, `@/shared/config`, `@/shared/lib/scaleFontSize`).
+
+```text
+src/shared/
+  config/
+    colors.ts       # TextColorToken + textColors palette
+    typography.ts   # TextVariant + typographyVariants presets
+    index.ts        # Barrel re-exports for tokens
+  lib/
+    scaleFontSize.ts   # Width- and font-scale-aware size helper
+  ui/
+    AppText.tsx     # Semantic Text wrapper (variants, colors, scaling)
+    index.ts        # export { AppText, AppTextProps }
+```
+
+### AppText stack
+
+| Piece | Role |
+|-------|------|
+| `typographyVariants` | Base sizes/weights at ~390pt reference width |
+| `textColors` | Semantic color tokens for glyph color |
+| `scaleFontSize` | `clamp(width/390, 0.85, 1.15) × min(fontScale, 2)` applied to preset `fontSize` and `lineHeight` |
+| `AppText` | `React.memo` wrapper: resolves variant/color, merges preset + `style`, `allowFontScaling={false}` |
+
+Config holds **tokens** (types + records); `lib` holds **pure helpers**; `ui` composes RN primitives. Pages should not duplicate typography constants—use `AppText` or import tokens from `@/shared/config` when a lower-level primitive is required.
+
+See [features.md](./features.md#shared-ui-apptext) for variants, colors, and usage examples.
+
 ## Segments
 
 Use conventional segment names inside slices:
